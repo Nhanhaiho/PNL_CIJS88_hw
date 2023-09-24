@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    margin:0
+}
+.App{
+    display: flex;
+    align-items: center;   
+    justify-content: center;
+    flex-direction: column; 
+}
+.Form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Form input{
+    margin: 10px;
+    padding:10px;
+    width: 100%;
+    border:none;
+    border-radius: 5px;
+    outline:none;
+}
+.Form{
+    background-color: aqua;
+    height: 100%;
+    width: 250px;
+    padding:20px;
+    border-radius: 5px;
+    box-shadow: inset;
+    margin:10px 0 0 0 ;
+}
+.Form button{
+    outline:none;
+    background-color: blue;
+    border:none;
+    cursor: pointer;
+    border-radius: 3px;
+    color:white;
+}
