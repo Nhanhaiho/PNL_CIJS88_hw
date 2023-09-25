@@ -1,34 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 import React, { useState } from "react";
-import { useFormik } from "formik";
+import validator from "validator";
 
 function App() {
   const [formInfo, setFormInfo] = useState({
-    'userName':"",
-    'phoneNumber': "",
-    'adress': "",
-    'email': "",
-    'birth':""
-  })
+    userName: "",
+    phoneNumber: "",
+    adress: "",
+    email: "",
+    birth: "",
+  });
 
   const onHandleChange = (key, event) => {
-    const value = event.target.value 
-    setFormInfo({ ...formInfo,[key]:value})
-}
+    const value = event.target.value;
+    setFormInfo({ ...formInfo, [key]: value });
+  };
 
-  
-  const { userName, phoneNumber, adress, email, birth } = formInfo
-  
+  const { userName, phoneNumber, adress, email, birth } = formInfo;
+
   const onClick = () => {
     if (!userName || !phoneNumber || !adress || !email || !birth) {
-      alert('pls enter sth');
-      return
+      alert("pls enter full");
+      return;
     }
-   alert(JSON.stringify(formInfo));
-    
-  }
-
+    if (!validator.isEmail(email)) {
+      alert("validate email pls enter again\n");
+    } else {
+      alert(JSON.stringify(formInfo));
+    }
+  };
 
   return (
     <div className="App">
@@ -67,7 +68,7 @@ function App() {
         />
         {/* <span>hello</span> */}
         <input
-          type='date'
+          type="date"
           placeholder="dd/mm/yyyy"
           value={birth}
           onChange={(e) => {
